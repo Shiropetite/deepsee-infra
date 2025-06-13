@@ -1,0 +1,10 @@
+image:
+  repository: titeshi/deepsee-front
+  tag: latest
+
+replicas: 1
+port: 80
+host: deepsee.peticiel.fr
+
+env:
+  API_URL: http://api.deepsee.peticiel.fr

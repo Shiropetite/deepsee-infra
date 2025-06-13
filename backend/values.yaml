@@ -1,0 +1,14 @@
+image:
+  repository: titeshi/deepsee-back
+  tag: latest
+
+replicas: 1
+host: api.deepsee.peticiel.fr
+port: 3000
+
+env:
+  DB_HOST: postgres
+  DB_USER: "deepsee_user"
+  DB_PASSWORD: ""
+  DB_NAME: "deepsee_db"
+  DB_PORT: 5432

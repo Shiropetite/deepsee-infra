@@ -1,0 +1,8 @@
+POSTGRES_USER: "deepsee_user"
+POSTGRES_PASSWORD: ""
+POSTGRES_DB: "deepsee_db"
+port: 5432
+
+image:
+  repository: postgres
+  tag: "15"
