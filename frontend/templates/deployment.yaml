@@ -18,8 +18,11 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: {{ .Values.port }}
-        env:
-        {{- range $key, $val := .Values.env }}
-        - name: {{ $key }}
-          value: "{{ $val }}"
-        {{- end }}
+        volumeMounts:
+        - name: config
+          mountPath: /usr/share/nginx/html/config.js
+          subPath: config.js
+      volumes:
+      - name: config
+        configMap:
+          name: {{ .Release.Name }}-config

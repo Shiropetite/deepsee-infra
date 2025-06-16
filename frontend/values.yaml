@@ -7,4 +7,4 @@ port: 80
 host: deepsee.peticiel.fr
 
 env:
-  VITE_API_URL: http://api.deepsee.peticiel.fr
+  baseUrl: http://api.deepsee.peticiel.fr
