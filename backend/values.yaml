@@ -12,3 +12,5 @@ env:
   DB_PASSWORD: ""
   DB_NAME: "deepsee_db"
   DB_PORT: 5432
+
+secretName: deepsee-db-secret

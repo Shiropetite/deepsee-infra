@@ -1,4 +1,3 @@
-# templates/deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -19,14 +18,15 @@ spec:
         ports:
         - containerPort: {{ .Values.port }}
         env:
-        {{- range $key, $val := .Values.env }}
-        - name: {{ $key }}
-          value: "{{ $val }}"
-        {{- end }}
-        valueFrom:
-          secretKeyRef:
-            name: {{ .Values.secretName }}
-            key: POSTGRES_PASSWORD
+          {{- range $key, $val := .Values.env }}
+          - name: {{ $key }}
+            value: "{{ $val }}"
+          {{- end }}
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.secretName }}
+                key: POSTGRES_PASSWORD
         volumeMounts:
         - name: pgdata
           mountPath: /var/lib/postgresql/data
