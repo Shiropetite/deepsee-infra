@@ -18,15 +18,17 @@ spec:
         ports:
         - containerPort: {{ .Values.port }}
         env:
-          {{- range $key, $val := .Values.env }}
-          - name: {{ $key }}
-            value: "{{ $val }}"
-          {{- end }}
-          - name: POSTGRES_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: {{ .Values.secretName }}
-                key: POSTGRES_PASSWORD
+        - name: POSTGRES_USER
+          value: "{{ .Values.env.POSTGRES_USER }}"
+        - name: POSTGRES_DB
+          value: "{{ .Values.env.POSTGRES_DB }}"
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.secretName }}
+              key: POSTGRES_PASSWORD
+        - name: PORT
+          value: "{{ .Values.env.port }}"
         volumeMounts:
         - name: pgdata
           mountPath: /var/lib/postgresql/data

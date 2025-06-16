@@ -7,10 +7,10 @@ host: api.deepsee.peticiel.fr
 port: 3000
 
 env:
-  DB_HOST: postgres
+  DB_HOST: deepsee-db
   DB_USER: "deepsee_user"
   DB_PASSWORD: ""
   DB_NAME: "deepsee_db"
   DB_PORT: 5432
 
-secretName: deepsee-db-secret
+secretName: deepsee-back-db-secret
